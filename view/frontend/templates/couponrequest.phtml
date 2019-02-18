@@ -1,0 +1,76 @@
+<!-- BEGIN COUPON REQUEST -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="block-coupon-request">
+            <a href="#" class="action primary tocart" data-toggle="modal" data-target="#modalCouponRequest">
+                <?php echo __('Request Discount'); ?>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalCouponRequest" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form contact"
+                      action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
+                      id="coupon-request-form"
+                      method="post"
+                      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+                      >
+                    <fieldset class="fieldset">
+                        <legend class="legend"><h5 class="text-center"><?php /* @escapeNotVerified */ echo __('Discount coupon request') ?></h5></legend><br />
+                        <div class="field note info"><?php /* @escapeNotVerified */ echo __('We will study your particular case, the product, and the measure you need to give you a personalized discount. Your Email and Phone will exclusively be used to communicate with you in case we can generate a personalized discount.') ?></div>
+                        <div class="field name required">
+                            <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Nombre') ?></span></label>
+                            <div class="control">
+                                <input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Nombre') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                        <div class="field email required">
+                            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+                            <div class="control">
+                                <input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                            </div>
+                        </div>
+                        <div class="field telephone">
+                            <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone') ?></span></label>
+                            <div class="control">
+                                <input name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Phone') ?>" value="" class="input-text" type="text" />
+                            </div>
+                        </div>
+                        <div class="field comment">
+                            <label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('Comments') ?></span></label>
+                            <div class="control">
+                                <textarea name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('Comments') ?>" class="input-text" cols="5" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="actions-toolbar">
+                        <div class="text-center">
+                            <input type="hidden" name="product" value="<?php echo $block->getUrlProduct(); ?>" />
+                            <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Request') ?>" class="action submit-coupon-request">
+                                <span><?php /* @escapeNotVerified */ echo __('Request') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="info-result">
+                        <div class="info-success text-center" style="display: none;"><i class="fa fa-check" aria-hidden="true"></i> <?php echo __('Request sent correctly. We will contact you') ?></div>
+                        <div class="info-error text-center" style="display: none;"><i class="fa fa-ban" aria-hidden="true"></i> <?php echo __('An error occurred while sending the request. Try again later.') ?></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<div data-mage-init='{"couponrequest": {}}'>
+</div>
+<!-- END COUPON REQUEST -->
